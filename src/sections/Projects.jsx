@@ -40,6 +40,7 @@ const projects = [
     image: "/projects/texkleen.png",
     tags: ["Flutter", "GPS Tracking", "Laravel", "Service Management"],
     private: true,
+    website: "https://texkleenindo.com/",
   },
 
   {
@@ -68,6 +69,7 @@ const projects = [
     image: "/projects/xymart.png",
     tags: ["Flutter", "Xendit", "FCM", "E-commerce"],
     private: true,
+    website: "https://www.xymart.id/",
   },
 
   {
@@ -77,6 +79,7 @@ const projects = [
     image: "/projects/xymart-delivery.png",
     tags: ["Flutter", "FCM", "Delivery App"],
     private: true,
+    website: "https://www.xymart.id/",
   },
 
   {
