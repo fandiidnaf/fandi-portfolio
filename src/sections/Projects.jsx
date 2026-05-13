@@ -4,6 +4,45 @@ import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 
 const projects = [
   // Published & Verified Projects
+
+  {
+    title: "ARM (Activation Resource Management)",
+    description:
+      "ARM (Activation Resource Management) – Part of Flavor 3 enterprise suite (Synergic, Zpectra, Magnum). Comprehensive equipment rental & asset management system for Event Organizers featuring rental planning, real-time monitoring, event fulfillment, and post-event evaluation.",
+    image: "/projects/arm.png",
+    tags: [
+      "Flutter",
+      "Rental System",
+      "Event Management",
+      "Enterprise",
+      "multi-App Suite",
+    ],
+    playStore:
+      "https://play.google.com/store/apps/developer?id=ARM+-+Activation+Resources+Management",
+    appStore:
+      "https://apps.apple.com/us/developer/pt-mega-wira-mandiri/id1497270724",
+  },
+
+  {
+    title: "Tetra Pulsa",
+    description:
+      "Fintech mobile app that allows users to instantly convert mobile credit (pulsa) into cash or e-wallet balance (Dana, OVO, GoPay, ShopeePay) with fast and secure transactions.",
+    longDescription:
+      "Tetra Pulsa is a leading pulsa-to-cash fintech platform in Indonesia. I developed this cross-platform mobile application using Flutter, which is now live on both Google Play Store and Apple App Store. Key features include real-time transaction processing, multiple payment methods, Xendit payment gateway integration, WebSocket-powered live chat support, transaction history, and strong security measures.",
+    image: "/projects/tetra-pulsa.png",
+    tags: [
+      "Flutter",
+      "Fintech",
+      "WebSocket",
+      "Real-time",
+      "Mobile App",
+      "Dart",
+    ],
+    playStore: "https://play.google.com/store/apps/details?id=com.tetra.pulsa",
+    appStore: "https://apps.apple.com/id/app/tetra-pulsa/id6458982998",
+    website: "https://tetrapulsa.com",
+  },
+
   {
     title: "Kolam Ulam",
     description:
@@ -43,24 +82,6 @@ const projects = [
     website: "https://texkleenindo.com/",
   },
 
-  {
-    title: "ARM (Activation Resource Management)",
-    description:
-      "ARM (Activation Resource Management) – Part of Flavor 3 enterprise suite (Synergic, Zpectra, Magnum). Comprehensive equipment rental & asset management system for Event Organizers featuring rental planning, real-time monitoring, event fulfillment, and post-event evaluation.",
-    image: "/projects/arm.png",
-    tags: [
-      "Flutter",
-      "Rental System",
-      "Event Management",
-      "Enterprise",
-      "multi-App Suite",
-    ],
-    playStore:
-      "https://play.google.com/store/apps/developer?id=ARM+-+Activation+Resources+Management",
-    appStore:
-      "https://apps.apple.com/us/developer/pt-mega-wira-mandiri/id1497270724",
-  },
-
   // Fintech & E-commerce
   {
     title: "xymart",
@@ -80,26 +101,6 @@ const projects = [
     tags: ["Flutter", "FCM", "Delivery App"],
     private: true,
     website: "https://www.xymart.id/",
-  },
-
-  {
-    title: "Tetra Pulsa",
-    description:
-      "Fintech mobile app that allows users to instantly convert mobile credit (pulsa) into cash or e-wallet balance (Dana, OVO, GoPay, ShopeePay) with fast and secure transactions.",
-    longDescription:
-      "Tetra Pulsa is a leading pulsa-to-cash fintech platform in Indonesia. I developed this cross-platform mobile application using Flutter, which is now live on both Google Play Store and Apple App Store. Key features include real-time transaction processing, multiple payment methods, Xendit payment gateway integration, WebSocket-powered live chat support, transaction history, and strong security measures.",
-    image: "/projects/tetra-pulsa.png",
-    tags: [
-      "Flutter",
-      "Fintech",
-      "WebSocket",
-      "Real-time",
-      "Mobile App",
-      "Dart",
-    ],
-    playStore: "https://play.google.com/store/apps/details?id=com.tetra.pulsa",
-    appStore: "https://apps.apple.com/id/app/tetra-pulsa/id6458982998",
-    website: "https://tetrapulsa.com",
   },
 
   {
