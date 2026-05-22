@@ -15,13 +15,13 @@ const contactInfo = [
     icon: Mail,
     label: "Email",
     value: "fandigit7@gmail.com",
-    href: "mailto:pedro@example.com",
+    href: "mailto:fandigit7@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
     value: "+62 857 0872 6068",
-    href: "tel:+15551234567",
+    href: "tel:+6285708726068",
   },
   {
     icon: MapPin,
