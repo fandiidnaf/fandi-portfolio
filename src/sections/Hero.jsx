@@ -2,11 +2,9 @@ import { Button } from "@/components/Button";
 import {
   ArrowRight,
   ChevronDown,
-  Github,
-  Linkedin,
-  Twitter,
   Download,
 } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 
 const skills = [
@@ -28,6 +26,14 @@ const skills = [
   "ERP Systems",
 ];
 
+const particles = Array.from({ length: 30 }, (_, i) => ({
+  id: i,
+  left: `${((i * 37 + 13) % 100).toFixed(1)}%`,
+  top: `${((i * 53 + 7) % 100).toFixed(1)}%`,
+  animationDuration: `${15 + ((i * 7) % 20)}s`,
+  animationDelay: `${((i * 1.7) % 5).toFixed(1)}s`,
+}));
+
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -43,18 +49,16 @@ export const Hero = () => {
 
       {/* Green Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {particles.map((dot) => (
           <div
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
-            key={i}
+            key={dot.id}
             style={{
               backgroundColor: "#20B2A6",
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${
-                15 + Math.random() * 20
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
+              left: dot.left,
+              top: dot.top,
+              animation: `slow-drift ${dot.animationDuration} ease-in-out infinite`,
+              animationDelay: dot.animationDelay,
             }}
           />
         ))}
@@ -120,12 +124,11 @@ export const Hero = () => {
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
-                { icon: Github, href: "https://github.com/fandiidnaf" },
+                { icon: FaGithub, href: "https://github.com/fandiidnaf" },
                 {
-                  icon: Linkedin,
+                  icon: FaLinkedin,
                   href: "https://linkedin.com/in/moh-dwi-afandi",
                 },
-                // { icon: Twitter, href: "#" },
               ].map((social, idx) => (
                 <a
                   key={idx}

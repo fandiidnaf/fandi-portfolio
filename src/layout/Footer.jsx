@@ -1,13 +1,12 @@
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/fandiidnaf", label: "GitHub" },
+  { icon: FaGithub, href: "https://github.com/fandiidnaf", label: "GitHub" },
   {
-    icon: Linkedin,
+    icon: FaLinkedin,
     href: "https://linkedin.com/in/moh-dwi-afandi",
     label: "LinkedIn",
   },
-  // { icon: Twitter, href: "#", label: "Twitter" },
 ];
 
 const footerLinks = [
