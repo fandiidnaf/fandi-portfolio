@@ -1,3 +1,4 @@
+import { type ComponentType, type FormEvent, useState } from "react";
 import {
   Mail,
   Phone,
@@ -7,10 +8,27 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { Button } from "@/components/Button";
-import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const contactInfo = [
+interface ContactInfoItem {
+  icon: ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+  href: string;
+}
+
+interface FormDataState {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface SubmitStatusState {
+  type: "success" | "error" | null;
+  message: string;
+}
+
+const contactInfo: ContactInfoItem[] = [
   {
     icon: Mail,
     label: "Email",
@@ -32,18 +50,18 @@ const contactInfo = [
 ];
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormDataState>({
     name: "",
     email: "",
     message: "",
   });
-  const [isLoading, setIsLoading] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({
-    type: null, // 'success' or 'error'
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatusState>({
+    type: null,
     message: "",
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsLoading(true);
@@ -75,16 +93,21 @@ export const Contact = () => {
         message: "Message sent successfully! I'll get back to you soon.",
       });
       setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
+    } catch (err: unknown) {
       console.error("EmailJS error:", err);
+      const errorMessage =
+        err && typeof err === "object" && "text" in err && typeof (err as { text: unknown }).text === "string"
+          ? (err as { text: string }).text
+          : "Failed to send message. Please try again later.";
       setSubmitStatus({
         type: "error",
-        message: err.text || "Failed to send message. Please try again later.",
+        message: errorMessage,
       });
     } finally {
       setIsLoading(false);
     }
   };
+
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
@@ -141,6 +164,7 @@ export const Contact = () => {
                   Email
                 </label>
                 <input
+                  id="email"
                   required
                   placeholder="your@email.com"
                   type="email"
@@ -160,6 +184,7 @@ export const Contact = () => {
                   Message
                 </label>
                 <textarea
+                  id="message"
                   rows={5}
                   required
                   value={formData.message}

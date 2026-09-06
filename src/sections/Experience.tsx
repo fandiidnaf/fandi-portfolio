@@ -1,4 +1,13 @@
-const experiences = [
+interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  description: string;
+  technologies: string[];
+  current: boolean;
+}
+
+const experiences: ExperienceItem[] = [
   {
     period: "2025 — Present",
     role: "Flutter Developer",
@@ -104,7 +113,7 @@ export const Experience = () => {
                   }`}
                 >
                   <div
-                    className={`glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500`}
+                    className="glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500"
                   >
                     <span className="text-sm text-primary font-medium">
                       {exp.period}

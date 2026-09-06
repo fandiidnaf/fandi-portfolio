@@ -1,7 +1,14 @@
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { useState } from "react";
 
-const testimonials = [
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  avatar: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     quote:
       "Fandi successfully delivered our mobile application to production with great performance and stability. The process was smooth and professional.",
@@ -32,6 +39,7 @@ export const Testimonials = () => {
       (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
   };
+
   return (
     <section id="testimonials" className="py-32 relative overflow-hidden">
       <div
@@ -103,8 +111,9 @@ export const Testimonials = () => {
             {/* Testimonials Navigation */}
             <div className="flex items-center justify-center gap-4 mt-8">
               <button
-                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all cursor-pointer"
                 onClick={previous}
+                aria-label="Previous testimonial"
               >
                 <ChevronLeft />
               </button>
@@ -114,10 +123,11 @@ export const Testimonials = () => {
                   <button
                     key={idx}
                     onClick={() => setActiveIdx(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    aria-label={`Go to testimonial ${idx + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                       idx === activeIdx
                         ? "w-8 bg-primary"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                        : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                     }`}
                   />
                 ))}
@@ -125,7 +135,8 @@ export const Testimonials = () => {
 
               <button
                 onClick={next}
-                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+                className="p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all cursor-pointer"
+                aria-label="Next testimonial"
               >
                 <ChevronRight />
               </button>

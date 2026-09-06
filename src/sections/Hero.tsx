@@ -1,13 +1,23 @@
+import { type ComponentType } from "react";
 import { Button } from "@/components/Button";
-import {
-  ArrowRight,
-  ChevronDown,
-  Download,
-} from "lucide-react";
+import { ArrowRight, ChevronDown, Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 
-const skills = [
+interface Particle {
+  id: number;
+  left: string;
+  top: string;
+  animationDuration: string;
+  animationDelay: string;
+}
+
+interface SocialLink {
+  icon: ComponentType<{ className?: string }>;
+  href: string;
+}
+
+const skills: string[] = [
   "Flutter",
   "Dart",
   "Kotlin",
@@ -26,7 +36,7 @@ const skills = [
   "ERP Systems",
 ];
 
-const particles = Array.from({ length: 30 }, (_, i) => ({
+const particles: Particle[] = Array.from({ length: 30 }, (_, i) => ({
   id: i,
   left: `${((i * 37 + 13) % 100).toFixed(1)}%`,
   top: `${((i * 53 + 7) % 100).toFixed(1)}%`,
@@ -34,7 +44,21 @@ const particles = Array.from({ length: 30 }, (_, i) => ({
   animationDelay: `${((i * 1.7) % 5).toFixed(1)}s`,
 }));
 
+const socialLinks: SocialLink[] = [
+  { icon: FaGithub, href: "https://github.com/fandiidnaf" },
+  {
+    icon: FaLinkedin,
+    href: "https://linkedin.com/in/moh-dwi-afandi",
+  },
+];
+
 export const Hero = () => {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -97,21 +121,13 @@ export const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <button
-                onClick={() => {
-                  document.getElementById("contact").scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }}
-              >
-                <Button size="lg">
-                  Contact Me <ArrowRight className="w-5 h-5" />
-                </Button>
-              </button>
+              <Button size="lg" onClick={scrollToContact}>
+                Contact Me <ArrowRight className="w-5 h-5" />
+              </Button>
 
               <a
                 href="./Moh. Dwi Afandi_EN_CV_ATS.pdf"
-                download={"Moh. Dwi Afandi_EN_CV_ATS.pdf"}
+                download="Moh. Dwi Afandi_EN_CV_ATS.pdf"
               >
                 <AnimatedBorderButton>
                   <Download className="w-5 h-5" />
@@ -123,25 +139,19 @@ export const Hero = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
-              {[
-                { icon: FaGithub, href: "https://github.com/fandiidnaf" },
-                {
-                  icon: FaLinkedin,
-                  href: "https://linkedin.com/in/moh-dwi-afandi",
-                },
-              ].map((social, idx) => (
+              {socialLinks.map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
                   className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 >
-                  {<social.icon className="w-5 h-5" />}
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
           </div>
           {/* Right Column - Profile Image */}
-          <div className="relatice animate-fade-in animation-delay-300">
+          <div className="relative animate-fade-in animation-delay-300">
             {/* Profile Image */}
             <div className="relative max-w-md mx-auto">
               <div

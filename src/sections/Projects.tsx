@@ -2,9 +2,20 @@ import { ArrowUpRight, Globe, Lock } from "lucide-react";
 import { FaGooglePlay, FaAppStoreIos } from "react-icons/fa";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 
-const projects = [
-  // Published & Verified Projects
+interface Project {
+  title: string;
+  description: string;
+  longDescription?: string;
+  image: string;
+  tags: string[];
+  playStore?: string;
+  appStore?: string;
+  website?: string;
+  private?: boolean;
+}
 
+const projects: Project[] = [
+  // Published & Verified Projects
   {
     title: "ARM (Activation Resource Management)",
     description:
@@ -111,101 +122,6 @@ const projects = [
     tags: ["Flutter", "ERP", "Clean Architecture"],
     private: true,
   },
-
-  // {
-  //   title: "Azarine App",
-  //   description:
-  //     "Internal invoice & performance management system for Azarine. Built role-based dashboards (GM, Manager, Supervisor, Staff) for monitoring efficiency and simplified invoice handling.",
-  //   image: "/projects/azarine.png",
-  //   tags: ["Flutter", "Clean Architecture", "Role-based Access"],
-  //   playStore:
-  //     "https://play.google.com/store/apps/details?id=com.azarine.azarine",
-  // },
-
-  // {
-  //   title: "Pulsain",
-  //   description:
-  //     "Pulsa conversion app (similar to Tetra Pulsa) integrated with Xendit and real-time WebSocket features.",
-  //   image: "/projects/pulsain.png",
-  //   tags: ["Flutter", "Xendit", "WebSocket", "Fintech"],
-  //   private: true,
-  // },
-
-  // Other Production Projects
-
-  // {
-  //   title: "Cartago Cashier",
-  //   description:
-  //     "Tablet-optimized POS application with offline mode and barcode scanner for fast retail transactions.",
-  //   image: "/projects/cartago-cashier.png",
-  //   tags: ["Flutter", "Offline First", "POS", "Tablet Optimized"],
-  //   private: true,
-  // },
-
-  // {
-  //   title: "Legacy Privilege",
-  //   description:
-  //     "Gamification and loyalty app with points system, cashback rewards, and customer retention features.",
-  //   image: "/projects/legacy-privilege.png",
-  //   tags: ["Flutter", "Gamification", "Loyalty System"],
-  //   private: true,
-  // },
-
-  // {
-  //   title: "Luxury Checker",
-  //   description:
-  //     "Luxury branded item authenticity verification app with Xendit payment and real-time WebSocket chat.",
-  //   image: "/projects/luxury-checker.png",
-  //   tags: ["Flutter", "Xendit", "WebSocket", "Authentication"],
-  //   private: true,
-  // },
-
-  // {
-  //   title: "Seaworth Navcomm",
-  //   description:
-  //     "Ship service and navigation communication app with real-time WebSocket chat functionality.",
-  //   image: "/projects/seaworth.png",
-  //   tags: ["Flutter", "WebSocket", "Real-time"],
-  //   private: true,
-  // },
-
-  // {
-  //   title: "Proton",
-  //   description:
-  //     "Pest control management application for scheduling, reporting, and operational efficiency.",
-  //   image: "/projects/proton.png",
-  //   tags: ["Flutter", "Service Management"],
-  //   private: true,
-  // },
-
-  // {
-  //   title: "ERP Web (Lenna Usaha Sejati)",
-  //   description:
-  //     "Web-based ERP application developed with Flutter Web for CV. Lenna Usaha Sejati.",
-  //   image: "/projects/erp-lus.png",
-  //   tags: ["Flutter Web", "ERP"],
-  //   website: "https://lennausahasejati.com",
-  // },
-
-  // // Bali Project Indonesia
-
-  // {
-  //   title: "OpenJob",
-  //   description:
-  //     "Job search mobile app with BLoC state management, Firebase Cloud Messaging, and clean architecture (near-release stage).",
-  //   image: "/projects/openjob.png",
-  //   tags: ["Flutter", "BLoC", "FCM", "Clean Architecture"],
-  //   private: true,
-  // },
-
-  // {
-  //   title: "Battery Bird",
-  //   description:
-  //     "Portable power bank rental service app with full UI/UX and clean architecture implementation.",
-  //   image: "/projects/battery-bird.png",
-  //   tags: ["Flutter", "Clean Architecture", "Rental App"],
-  //   private: true,
-  // },
 ];
 
 export const Projects = () => {
@@ -331,18 +247,16 @@ export const Projects = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <button
+          <AnimatedBorderButton
             onClick={() =>
               document
                 .getElementById("contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            <AnimatedBorderButton>
-              Let's Build Something
-              <ArrowUpRight className="w-5 h-5" />
-            </AnimatedBorderButton>
-          </button>
+            Let's Build Something
+            <ArrowUpRight className="w-5 h-5" />
+          </AnimatedBorderButton>
         </div>
       </div>
     </section>

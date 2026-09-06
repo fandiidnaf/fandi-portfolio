@@ -1,6 +1,13 @@
+import { type ComponentType } from "react";
 import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
 
-const highlights = [
+interface Highlight {
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
+
+const highlights: Highlight[] = [
   {
     icon: Code2,
     title: "Clean Code",
@@ -76,7 +83,7 @@ export const About = () => {
             </div>
           </div>
 
-          {/* Right Column - Hilights */}
+          {/* Right Column - Highlights */}
           <div className="grid sm:grid-cols-2 gap-6">
             {highlights.map((item, idx) => (
               <div

@@ -1,6 +1,18 @@
+import { type ComponentType } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
-const socialLinks = [
+interface SocialLink {
+  icon: ComponentType<{ className?: string }>;
+  href: string;
+  label: string;
+}
+
+interface FooterLink {
+  href: string;
+  label: string;
+}
+
+const socialLinks: SocialLink[] = [
   { icon: FaGithub, href: "https://github.com/fandiidnaf", label: "GitHub" },
   {
     icon: FaLinkedin,
@@ -9,7 +21,7 @@ const socialLinks = [
   },
 ];
 
-const footerLinks = [
+const footerLinks: FooterLink[] = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
