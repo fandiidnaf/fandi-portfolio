@@ -1,0 +1,5 @@
+# robots.txt for Moh. Dwi Afandi Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://fandi-portfolio.vercel.app/sitemap.xml
